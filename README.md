@@ -1,4 +1,4 @@
-# <p align="center" > تنصيب سورس لورين
+# <p align="center" > تنصيب سورس وان سپيد
 # <p align="center" > ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉
 # <p align="center" > ⤈ ↫ كود التنصيب الاول مع المكاتب ↬ ⤈
 # <p align="center" > `git clone https://github.com/WaNsPeEdTEM/WaNsPeEd.git;cd WaNsPeEd;chmod +x WaNsPeEd.sh;./WaNsPeEd.sh install`
