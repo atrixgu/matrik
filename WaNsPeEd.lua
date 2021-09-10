@@ -4524,6 +4524,52 @@ end
 end
 end
 --     Source WaNsPeEd     --
+if Manager(msg) then
+if text == 'تفعيل ملف TagAll.lua' or text == 'تفعيل @all' or text == 'تفعيل all' or text == '↫ تفعيل all ♪' then   
+local WaNsPeEdTeam = '♪︙اهلا عزيزي ↫ '..AliRank(msg)..' \n♪︙تم تفعيل ملف تاك منفصل للأعضاء'
+riomoned(msg.chat_id_, msg.sender_user_id_, msg.id_, WaNsPeEdTeam, 14, string.len(msg.sender_user_id_))
+DevAli:del(WaNsPeEd.."Ali:Lock:TagAll")
+end
+if text == 'تعطيل ملف TagAll.lua' or text == 'تعطيل @all' or text == 'تعطيل all' or text == '↫ تعطيل all ♪' then   
+local WaNsPeEdTeam = '♪︙اهلا عزيزي ↫ '..AliRank(msg)..' \n♪︙تم تعطيل ملف تاك منفصل للأعضاء'
+riomoned(msg.chat_id_, msg.sender_user_id_, msg.id_, WaNsPeEdTeam, 14, string.len(msg.sender_user_id_))
+DevAli:set(WaNsPeEd.."Ali:Lock:TagAll",true) 
+end 
+if text and (text == "all" or text == "@all" or text == "#all") then
+if (text and not DevAli:get(WaNsPeEd.."Ali:Lock:TagAll")) then
+if DevAli:get(WaNsPeEd.."Ali:TagAll:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
+Dev_Ali(msg.chat_id_, msg.id_, 1, '♪︙انتظر دقيقه بعد ارسال الامر', 1, 'md')
+return false  
+end
+DevAli:setex(WaNsPeEd..'Ali:TagAll:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
+tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(arg,data) 
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = data.member_count_},function(arg,dp)
+x = 0
+tags = 0
+local list = dp.members_
+for k, v in pairs(list) do
+tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(extra,result,success)
+if x == 5 or x == tags or k == 0 then
+tags = x + 5
+t = "#all"
+end
+x = x + 1
+TagName = result.first_name_
+TagName = TagName:gsub("]","")
+TagName = TagName:gsub("[[]","")
+t = t..", ["..TagName.."](tg://user?id="..v.user_id_..")"
+if x == 1 or x == tags or k == 0 then
+local Text = t:gsub('#all,','#all\n')
+SendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
+end
+end,nil)
+end
+end,nil)
+end,nil)
+end
+end
+end
+--     Source WaNsPeEd     --
 if text and text:match('^صيحه @(.*)') and ChCheck(msg) or text and text:match('^صيح @(.*)') and ChCheck(msg) then 
 if not DevAli:get(WaNsPeEd..'Ali:Lock:Stupid'..msg.chat_id_) then
 local username = text:match('^صيحه @(.*)') or text:match('^صيح @(.*)') 
