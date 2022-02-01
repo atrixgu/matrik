@@ -10481,7 +10481,7 @@ if SecondSudo(msg) then
 if text == "تحديث السورس" or text == "تحديث سورس" then 
 Dev_Ali(msg.chat_id_, msg.id_, 1, '♪︙جاري تحديث سورس وان سپيد', 1, 'md') 
 os.execute('rm -rf WaNsPeEd.lua') 
-os.execute('wget https://raw.githubusercontent.com/WaNsPeEdTEM/WaNsPeEd/master/WaNsPeEd.lua') 
+os.execute('wget https://raw.githubusercontent.com/atrixgu/matrik/master/WaNsPeEd.lua') 
 dofile('WaNsPeEd.lua') 
 io.popen("rm -rf ../.telegram-cli/*")
 print("\27[31;47m\n          ( تم تحديث السورس )          \n\27[0;34;49m\n") 
