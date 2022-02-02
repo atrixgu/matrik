@@ -74,7 +74,7 @@ Create(Config, "./config.lua")
 file = io.open("WaNsPeEd.sh", "w")  
 file:write([[
 #!/usr/bin/env bash
-cd $HOME/WaNsPeEd
+cd $HOME/matrik
 token="]]..DevAli:get(ServerWaNsPeEd.."TokenWaNsPeEd")..[["
 while(true) do
 rm -fr ../.telegram-cli
@@ -90,18 +90,18 @@ echo "~ The Token Was Not Found In The config.lua File"
 echo "┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉ ≈ ┉"
 exit 1
 fi
-./tg -s ./WaNsPeEd.lua -p PROFILE --bot=$token
+./tg -s ./matrik.lua -p PROFILE --bot=$token
 done
 ]])  
 file:close()  
 file = io.open("Run", "w")  
 file:write([[
 #!/usr/bin/env bash
-cd $HOME/WaNsPeEd
+cd $HOME/matrik
 while(true) do
 rm -fr ../.telegram-cli
-screen -S WaNsPeEd -X kill
-screen -S WaNsPeEd ./WaNsPeEd.sh
+screen -S matrik -X kill
+screen -S matrik ./WaNsPeEd.sh
 done
 ]]) 
 file:close() 
